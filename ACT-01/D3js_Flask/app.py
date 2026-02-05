@@ -23,6 +23,7 @@ def returnData():
         dicom_dataset = pydicom.dcmread(f"./Data/volume/{fileNumber}")
         
         return json.dumps(dicom_dataset.pixel_array.tolist())
+    # Fixed the errors
     except Exception as ex:
         return str({"error":ex.__str__()})
 @app.route("/files")
